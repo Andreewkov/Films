@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import ru.andreewkov.questions.ui.theme.AppTheme
 import ru.andreewkov.questions.utils.AppPreview
+import ru.andreewkov.questions.utils.ThemedFillMaxSizeSurface
 
 @AppPreview
 @Composable
@@ -14,10 +15,8 @@ fun QuestionListPreview() = QuestionListScreen()
 
 @Composable
 fun QuestionListScreen() {
-    AppTheme {
-        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-            QuestionListScreenContent()
-        }
+    ThemedFillMaxSizeSurface(color = MaterialTheme.colorScheme.background) {
+        QuestionListScreenContent()
     }
 }
 
