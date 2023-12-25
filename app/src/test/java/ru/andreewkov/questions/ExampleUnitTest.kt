@@ -1,4 +1,4 @@
-package ru.andreewkov.films
+package ru.andreewkov.questions
 
 import org.junit.Test
 

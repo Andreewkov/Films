@@ -1,4 +1,4 @@
-package ru.andreewkov.films.utils
+package ru.andreewkov.questions.utils
 
 import android.content.res.Configuration
 import androidx.compose.ui.tooling.preview.Devices

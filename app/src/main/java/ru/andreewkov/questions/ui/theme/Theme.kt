@@ -1,4 +1,4 @@
-package ru.andreewkov.films.ui.theme
+package ru.andreewkov.questions.ui.theme
 
 import android.app.Activity
 import android.os.Build

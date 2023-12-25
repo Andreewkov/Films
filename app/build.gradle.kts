@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ru.andreewkov.films"
+    namespace = "ru.andreewkov.questios"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ru.andreewkov.films"
+        applicationId = "ru.andreewkov.questions"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
