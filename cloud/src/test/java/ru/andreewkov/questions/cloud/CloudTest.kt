@@ -1,4 +1,4 @@
-package ru.andreewkov.questions
+package ru.andreewkov.questions.cloud
 
 import org.junit.Test
 
@@ -9,7 +9,7 @@ import org.junit.Assert.*
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ExampleUnitTest {
+class CloudTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)

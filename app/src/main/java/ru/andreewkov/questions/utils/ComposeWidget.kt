@@ -17,10 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
-import ru.andreewkov.questions.screen.list.QuestionList
 import ru.andreewkov.questions.ui.theme.AppTheme
-import ru.andreewkov.questios.R
+import ru.andreewkov.questions.R
 
 @Composable
 fun ThemedAppSurface(content: @Composable () -> Unit) {
