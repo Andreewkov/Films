@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Questions"
 include(":app")
+include(":data")
