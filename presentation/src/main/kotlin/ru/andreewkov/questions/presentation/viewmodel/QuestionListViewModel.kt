@@ -1,4 +1,4 @@
-package ru.andreewkov.questions.viewmodel
+package ru.andreewkov.questions.presentation.viewmodel
 
 import android.os.Handler
 import android.os.Looper
@@ -6,13 +6,13 @@ import androidx.core.os.postDelayed
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ru.andreewkov.questions.data.Question
-import ru.andreewkov.questions.data.QuestionsListState
-import ru.andreewkov.questions.data.QuestionsListState.Initialized
-import ru.andreewkov.questions.screen.QuestionsListScreenUiProvider
-import ru.andreewkov.questions.screen.QuestionsListScreenUiProviderStub
+import ru.andreewkov.questions.presentation.data.Question
+import ru.andreewkov.questions.presentation.data.QuestionsListState
+import ru.andreewkov.questions.presentation.data.QuestionsListState.Initialized
+import ru.andreewkov.questions.presentation.screen.model.QuestionsListUiModel
+import ru.andreewkov.questions.presentation.screen.model.QuestionsListUiModelStub
 
-class QuestionListViewModel : ViewModel(), QuestionsListScreenUiProvider {
+internal class QuestionListViewModel : ViewModel(), QuestionsListUiModel {
 
     private val mainHandler = Handler(Looper.getMainLooper())
 
@@ -25,7 +25,7 @@ class QuestionListViewModel : ViewModel(), QuestionsListScreenUiProvider {
 
         // TODO load questions
         mainHandler.postDelayed(MOCK_QUESTIONS_DELAY) {
-            onQuestionsLoaded(QuestionsListScreenUiProviderStub.stubbedQuestions)
+            onQuestionsLoaded(QuestionsListUiModelStub.stubbedQuestions)
         }
     }
 

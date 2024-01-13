@@ -1,15 +1,15 @@
-package ru.andreewkov.questions.screen
+package ru.andreewkov.questions.presentation.screen.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import ru.andreewkov.questions.data.Question
-import ru.andreewkov.questions.data.QuestionsListState
+import ru.andreewkov.questions.presentation.data.Question
+import ru.andreewkov.questions.presentation.data.QuestionsListState
 
-interface QuestionsListScreenUiProvider {
+internal interface QuestionsListUiModel {
     val questionsListState: LiveData<QuestionsListState>
 }
 
-object QuestionsListScreenUiProviderStub : QuestionsListScreenUiProvider {
+internal object QuestionsListUiModelStub : QuestionsListUiModel {
 
     val stubbedQuestions = listOf(
         Question(id = 0, title = "A? FSJKFSB SAF JDASKLF NSDLFKN SFADLKNNA DSFLKN ", answer = "A"),

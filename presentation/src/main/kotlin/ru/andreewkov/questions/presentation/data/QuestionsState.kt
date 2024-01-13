@@ -1,4 +1,4 @@
-package ru.andreewkov.questions.data
+package ru.andreewkov.questions.presentation.data
 
 sealed class QuestionsListState {
 

@@ -1,4 +1,4 @@
-package ru.andreewkov.questions.main
+package ru.andreewkov.questions.presentation.screen.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -12,30 +12,40 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import ru.andreewkov.questions.screen.list.QuestionListScreen
-import ru.andreewkov.questions.utils.AppPreview
-import ru.andreewkov.questions.utils.ThemedAppSurface
-import ru.andreewkov.questions.R
+import androidx.lifecycle.viewmodel.compose.viewModel
+import ru.andreewkov.questions.presentation.utils.AppPreview
+import ru.andreewkov.questions.presentation.utils.ThemedAppSurface
+import ru.andreewkov.questions.presentation.R
+import ru.andreewkov.questions.presentation.viewmodel.MainViewModel
+import ru.andreewkov.questions.presentation.screen.model.MainUiModel
+import ru.andreewkov.questions.presentation.screen.model.QuestionsListUiModelStub
 
 @AppPreview
 @Composable
-fun MainUiPreview() {
-    MainUi(mainScreenUiProvider = MainScreenUiProviderStub)
-}
-
-@Composable
-fun MainUi(mainScreenUiProvider: MainScreenUiProvider) {
+private fun MainUiPreview() {
     ThemedAppSurface {
         Column {
             MainTopAppBar()
-            QuestionListScreen(provider = mainScreenUiProvider.questionsListScreenUiProvider)
+            QuestionListScreen(provider = QuestionsListUiModelStub)
+        }
+    }
+}
+
+@Composable
+fun MainUi() {
+    val mainViewModel: MainViewModel = viewModel(factory = MainViewModel.Factory)
+    val mainUiModel = mainViewModel as MainUiModel
+    ThemedAppSurface {
+        Column {
+            MainTopAppBar()
+            QuestionListScreen(provider = mainUiModel.questionsListUiModel)
         }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTopAppBar() {
+internal fun MainTopAppBar() {
     Surface(shadowElevation = 8.dp) {
         CenterAlignedTopAppBar(
             colors = TopAppBarDefaults.centerAlignedTopAppBarColors(

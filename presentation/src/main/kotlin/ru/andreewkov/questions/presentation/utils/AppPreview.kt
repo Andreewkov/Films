@@ -1,4 +1,4 @@
-package ru.andreewkov.questions.utils
+package ru.andreewkov.questions.presentation.utils
 
 import android.content.res.Configuration
 import androidx.compose.ui.tooling.preview.Devices
@@ -33,4 +33,4 @@ private const val DeviceTablet = Devices.TABLET
     showSystemUi = true,
     uiMode = Configuration.UI_MODE_TYPE_UNDEFINED,
 )
-annotation class AppPreview
+internal annotation class AppPreview
