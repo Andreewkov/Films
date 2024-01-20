@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
     id("org.jetbrains.kotlin.jvm")
+    id("kotlin-kapt")
 }
 
 java {
@@ -9,6 +10,6 @@ java {
 }
 
 dependencies {
-    implementation(project(":cloud_api"))
-    implementation(project(":database_api"))
+    implementation("com.google.dagger:dagger:2.50")
+    kapt("com.google.dagger:dagger-compiler:2.50")
 }

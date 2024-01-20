@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import ru.andreewkov.questions.presentation.data.Question
 import ru.andreewkov.questions.presentation.data.QuestionsListState
 
-internal interface QuestionsListUiModel {
+interface QuestionsListUiModel {
     val questionsListState: LiveData<QuestionsListState>
 }
 

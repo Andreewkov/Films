@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -32,7 +33,8 @@ android {
 }
 
 dependencies {
-    //implementation(project(":database_api"))
+    implementation(project(":database_api"))
+    implementation(project(":di"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
