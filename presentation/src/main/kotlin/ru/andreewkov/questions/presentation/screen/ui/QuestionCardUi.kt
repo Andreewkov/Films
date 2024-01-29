@@ -17,13 +17,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.andreewkov.questions.presentation.data.Question
-import ru.andreewkov.questions.presentation.screen.model.QuestionsListUiModelStub
 import ru.andreewkov.questions.presentation.utils.Heart
 
 @Preview
 @Composable
 internal fun QuestionCardPreview() {
-    val question = QuestionsListUiModelStub.stubbedQuestions.first()
+    val question = stubbedQuestions.first()
     QuestionCard(
         question = Question(
             id = question.id,

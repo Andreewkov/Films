@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -17,8 +18,7 @@ import ru.andreewkov.questions.presentation.utils.AppPreview
 import ru.andreewkov.questions.presentation.utils.ThemedAppSurface
 import ru.andreewkov.questions.presentation.R
 import ru.andreewkov.questions.presentation.viewmodel.MainViewModel
-import ru.andreewkov.questions.presentation.screen.model.MainUiModel
-import ru.andreewkov.questions.presentation.screen.model.QuestionsListUiModelStub
+import ru.andreewkov.questions.presentation.viewmodel.ViewModelFactory
 
 @AppPreview
 @Composable
@@ -26,19 +26,21 @@ private fun MainUiPreview() {
     ThemedAppSurface {
         Column {
             MainTopAppBar()
-            QuestionListScreen(provider = QuestionsListUiModelStub)
+            QuestionListScreenPreview()
         }
     }
 }
 
 @Composable
 fun MainUi() {
-    val mainViewModel: MainViewModel = viewModel(factory = MainViewModel.Factory)
-    val mainUiModel = mainViewModel as MainUiModel
+    val mainViewModel: MainViewModel = viewModel(
+        factory = ViewModelFactory,
+    )
+
     ThemedAppSurface {
         Column {
             MainTopAppBar()
-            QuestionListScreen(provider = mainUiModel.questionsListUiModel)
+            QuestionListScreen()
         }
     }
 }

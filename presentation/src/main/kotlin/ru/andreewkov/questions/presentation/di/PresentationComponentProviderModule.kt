@@ -5,7 +5,7 @@ import dagger.Provides
 import ru.andreewkov.questions.data_api.DataApi
 
 @Module
-class PresentationApiProviderModule {
+class PresentationComponentProviderModule {
 
     @Provides
     fun providePresentationComponent(

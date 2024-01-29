@@ -5,10 +5,4 @@ import dagger.Provides
 import ru.andreewkov.questions.MainActivity
 
 @Module
-class ApplicationModule {
-
-    @Provides
-    fun provideA(): MainActivity.A {
-        return MainActivity.B()
-    }
-}
+class ApplicationModule

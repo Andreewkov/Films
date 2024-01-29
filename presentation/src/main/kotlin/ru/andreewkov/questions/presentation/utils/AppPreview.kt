@@ -12,25 +12,21 @@ private const val DeviceTablet = Devices.TABLET
 @Preview(
     device = DeviceNexus7,
     showBackground = true,
-    showSystemUi = true,
     uiMode = Configuration.UI_MODE_TYPE_UNDEFINED,
 )
 @Preview(
     device = DeviceLandscape,
     showBackground = true,
-    showSystemUi = true,
     uiMode = Configuration.UI_MODE_TYPE_UNDEFINED,
 )
 @Preview(
     device = DevicePixel2XL,
     showBackground = true,
-    showSystemUi = true,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 @Preview(
     device = DeviceTablet,
     showBackground = true,
-    showSystemUi = true,
     uiMode = Configuration.UI_MODE_TYPE_UNDEFINED,
 )
 internal annotation class AppPreview

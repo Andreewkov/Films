@@ -7,5 +7,4 @@ sealed class QuestionsListState {
     data object Loading : QuestionsListState()
 
     data class Success(val questions: List<Question>) : QuestionsListState()
-
 }

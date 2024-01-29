@@ -3,24 +3,34 @@ package ru.andreewkov.questions
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import ru.andreewkov.questions.di.ComponentHolder
-import ru.andreewkov.questions.di.ApplicationComponent
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import ru.andreewkov.questions.presentation.screen.ui.MainUi
-import javax.inject.Inject
+import ru.andreewkov.questions.presentation.viewmodel.MainViewModel
+import ru.andreewkov.questions.presentation.viewmodel.QuestionListViewModel
+import ru.andreewkov.questions.presentation.viewmodel.ViewModelFactory
 
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var a: A
+    private val mainViewModel: MainViewModel by viewModels { ViewModelFactory }
+    private val questionListViewModel: QuestionListViewModel by viewModels { ViewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ComponentHolder.get(ApplicationComponent::class.java).inject(this)
         super.onCreate(savedInstanceState)
         setContent { MainUi() }
+
+        observeViewModel()
+        mainViewModel.onCreateActivity(savedInstanceState)
     }
 
-    interface A
+    private fun observeViewModel() {
+        lifecycleScope.launch {
+            mainViewModel.loadQuestionsRequest.collect { onLoadQuestionRequest(it) }
+        }
+    }
 
-    class B : A
-
+    private fun onLoadQuestionRequest(request: MainViewModel.LoadQuestionsRequest) {
+        questionListViewModel.loadQuestions()
+    }
 }
