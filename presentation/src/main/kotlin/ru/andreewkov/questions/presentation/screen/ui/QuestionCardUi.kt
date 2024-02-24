@@ -16,40 +16,36 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ru.andreewkov.questions.presentation.data.Question
+import ru.andreewkov.questions.presentation.data.Item
 import ru.andreewkov.questions.presentation.utils.Heart
 
 @Preview
 @Composable
 internal fun QuestionCardPreview() {
-    val question = stubbedQuestions.first()
+    val item = stubbedItems.first()
     QuestionCard(
-        question = Question(
-            id = question.id,
-            title = question.title,
-            answer = question.answer,
-        )
+        item = item
     )
 }
 
 @Composable
-internal fun QuestionCard(question: Question) {
+internal fun QuestionCard(item: Item) {
     Surface(
         shadowElevation = 8.dp,
         shape = RoundedCornerShape(8.dp),
         color = MaterialTheme.colorScheme.primaryContainer
     ) {
-        QuestionCardContent(question)
+        QuestionCardContent(item)
     }
 }
 
 @Composable
-internal fun QuestionCardContent(question: Question) {
+internal fun QuestionCardContent(item: Item) {
     Row {
         Column(modifier = Modifier.weight(1F)) {
-            Text(text = question.title)
+            Text(text = item.correctAnswer)
             Spacer(modifier = Modifier.height(16.dp))
-            Text(text = question.answer)
+            Text(text = item.correctAnswer)
         }
         LikeBox(
             modifier = Modifier

@@ -2,14 +2,14 @@ package ru.andreewkov.questions.data.di
 
 import dagger.Module
 import dagger.Provides
-import ru.andreewkov.questions.data.DataClass
-import ru.andreewkov.questions.data_api.DataApiInterface
+import ru.andreewkov.questions.data.QuestionRepository
+import ru.andreewkov.questions.data_api.Repository
 
 @Module
 class DataModule {
 
     @Provides
-    fun provideDataApiInterface(): DataApiInterface {
-        return DataClass()
+    fun provideRepository(): Repository {
+        return QuestionRepository()
     }
 }

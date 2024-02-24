@@ -10,10 +10,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import ru.andreewkov.questions.presentation.data.Question
+import ru.andreewkov.questions.data_api.DataItem
+import ru.andreewkov.questions.data_api.Repository
+import ru.andreewkov.questions.di.ComponentHolder
 import ru.andreewkov.questions.presentation.data.QuestionsListState
 import ru.andreewkov.questions.presentation.data.QuestionsListState.Initialized
-import ru.andreewkov.questions.presentation.screen.ui.stubbedQuestions
+import ru.andreewkov.questions.presentation.di.PresentationComponent
+import ru.andreewkov.questions.presentation.screen.ui.stubbedItems
+import javax.inject.Inject
 
 class QuestionListViewModel(extras: CreationExtras) : ViewModel() {
 
@@ -23,6 +27,13 @@ class QuestionListViewModel(extras: CreationExtras) : ViewModel() {
     val questionsState: StateFlow<QuestionsListState>
         get() = _questionsState.asStateFlow()
 
+    @Inject
+    lateinit var repository: Repository
+
+    init {
+        ComponentHolder.get(PresentationComponent::class.java).inject(this)
+    }
+
     fun loadQuestions() {
         viewModelScope.launch {
             _questionsState.emit(QuestionsListState.Loading)
@@ -30,13 +41,13 @@ class QuestionListViewModel(extras: CreationExtras) : ViewModel() {
 
         // TODO load questions
         mainHandler.postDelayed(MOCK_QUESTIONS_DELAY) {
-            onQuestionsLoaded(stubbedQuestions)
+            //onQuestionsLoaded(stubbedItems)
         }
     }
 
-    private fun onQuestionsLoaded(questions: List<Question>) {
+    private fun onQuestionsLoaded(items: List<DataItem>) {
         viewModelScope.launch {
-            _questionsState.emit(QuestionsListState.Success(questions))
+            //_questionsState.emit(QuestionsListState.Success(items))
         }
     }
 

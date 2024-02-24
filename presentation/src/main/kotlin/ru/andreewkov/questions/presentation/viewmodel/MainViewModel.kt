@@ -7,15 +7,10 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.CreationExtras
 import kotlinx.coroutines.flow.MutableSharedFlow
-import ru.andreewkov.questions.data_api.DataApiInterface
 import ru.andreewkov.questions.di.ComponentHolder
 import ru.andreewkov.questions.presentation.di.PresentationComponent
-import javax.inject.Inject
 
 class MainViewModel(extras: CreationExtras) : ViewModel() {
-
-    @Inject
-    lateinit var data: DataApiInterface
 
     private val _loadQuestionsRequest = MutableSharedFlow<LoadQuestionsRequest>()
     val loadQuestionsRequest: SharedFlow<LoadQuestionsRequest>
